@@ -1,10 +1,9 @@
-import Tabuleiro.Posicao;
+import JogoTabuleiro.Tabuleiro;
 
 public class Programa {
     public static void main(String[] args) {
 
-        Posicao posicao01 = new Posicao(2, 3);
-        System.out.println("Posição: " + posicao01);
+        Tabuleiro tabuleiro01 = new Tabuleiro(8, 8);
 
     }
 }
