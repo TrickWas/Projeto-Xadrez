@@ -1,7 +1,11 @@
 package Aplicação;
 
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
 import Xadrez.Cor;
 import Xadrez.PecaXadrez;
+import Xadrez.PosicaoXadrez;
 
 public class UI {
 
@@ -26,6 +30,18 @@ public class UI {
 	public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
     // cores do fundo
     
+    public static PosicaoXadrez lerPosicaoXadrez (Scanner ler) {
+        try {
+        String s = ler.nextLine();
+        char coluna = s.charAt(0);
+        int linha = Integer.parseInt(s.substring(1));
+        return new PosicaoXadrez(coluna, linha);
+        }
+        catch (RuntimeException e) {
+            throw new InputMismatchException("Erro ao instanciar Posição do Xadrez: Valores validos são de a1 à h8");
+        }
+    }
+
     public static void printTabuleiro (PecaXadrez[][] pecas) {
         for (int i = 0; i < pecas.length; i++) {
             System.out.print((8 - i) + " ");
