@@ -15,9 +15,9 @@ public class PartidaXadrez {
     }
 
     public PecaXadrez[][] getPecas() {
-        PecaXadrez[][] matriz = new PecaXadrez[tabuleiro.getLinha()][tabuleiro.getColuna()];
+        PecaXadrez[][] matriz = new PecaXadrez[tabuleiro.getLinha()][tabuleiro.getColunas()];
         for (int i = 0; i < tabuleiro.getLinha(); i++) {
-            for (int j = 0;j < tabuleiro.getColuna(); j++) {
+            for (int j = 0;j < tabuleiro.getColunas(); j++) {
                 matriz[i][j] = (PecaXadrez) tabuleiro.peca(i, j);
             }
         }
