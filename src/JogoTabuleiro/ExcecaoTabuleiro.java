@@ -1,9 +1,9 @@
 package JogoTabuleiro;
 
-public class Excecao extends RuntimeException {
+public class ExcecaoTabuleiro extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    public Excecao(String mensagem) {
+    public ExcecaoTabuleiro(String mensagem) {
         super (mensagem);
     }
 }
