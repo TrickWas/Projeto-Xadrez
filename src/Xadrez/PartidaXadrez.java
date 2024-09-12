@@ -44,6 +44,9 @@ public class PartidaXadrez {
         if (!tabuleiro.temUmaPeca(posicao)) {
             throw new ExcecaoXadrez("Não existe peça na posição de origem");
         }
+        if (!tabuleiro.peca(posicao).temUmMovimentoPossivel()) {
+            throw new ExcecaoXadrez("Não existe movimentos possiveis para a peça");
+        }
     }
 
     private void lugarNovoPeca (char coluna, int linha, PecaXadrez peca) {
