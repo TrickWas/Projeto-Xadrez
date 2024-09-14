@@ -5,10 +5,10 @@ import JogoTabuleiro.Tabuleiro;
 import Xadrez.Cor;
 import Xadrez.PecaXadrez;
 
-public class Torre extends PecaXadrez  {
+public class Torre extends PecaXadrez {
 
     public Torre(Tabuleiro tabuleiro, Cor cor) {
-        super(tabuleiro, cor);  
+        super(tabuleiro, cor);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class Torre extends PecaXadrez  {
 
         Posicao p = new Posicao(0, 0);
 
-        //acima
+        // acima
         p.setValor(posicao.getLinha() - 1, posicao.getColuna());
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -32,7 +32,7 @@ public class Torre extends PecaXadrez  {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //esquerda
+        // esquerda
         p.setValor(posicao.getLinha(), posicao.getColuna() - 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -42,7 +42,7 @@ public class Torre extends PecaXadrez  {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //direita
+        // direita
         p.setValor(posicao.getLinha(), posicao.getColuna() + 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -52,7 +52,7 @@ public class Torre extends PecaXadrez  {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //abaixo
+        // abaixo
         p.setValor(posicao.getLinha() + 1, posicao.getColuna());
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -61,7 +61,6 @@ public class Torre extends PecaXadrez  {
         if (getTabuleiro().existePosicao(p) && temUmaPecaAdversaria(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
-
 
         return matriz;
     }

@@ -3,7 +3,7 @@ package Xadrez;
 import JogoTabuleiro.Posicao;
 
 public class PosicaoXadrez {
-    
+
     private char coluna;
     private int linha;
 
@@ -22,13 +22,13 @@ public class PosicaoXadrez {
     public int getLinha() {
         return linha;
     }
-    
+
     protected Posicao toPosicao() {
-        return new Posicao( 8 - linha, coluna - 'a' );
+        return new Posicao(8 - linha, coluna - 'a');
     }
-    
+
     protected static PosicaoXadrez fromPosicao(Posicao posicao) {
-        return new PosicaoXadrez((char)('a' + posicao.getColuna()), 8 - posicao.getLinha());
+        return new PosicaoXadrez((char) ('a' + posicao.getColuna()), 8 - posicao.getLinha());
     }
 
     @Override

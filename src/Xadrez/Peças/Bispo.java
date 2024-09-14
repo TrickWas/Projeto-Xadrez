@@ -9,7 +9,7 @@ public class Bispo extends PecaXadrez {
 
     public Bispo(Tabuleiro tabuleiro, Cor cor) {
         super(tabuleiro, cor);
-        
+
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Bispo extends PecaXadrez {
 
         Posicao p = new Posicao(0, 0);
 
-        //Noroeste
+        // Noroeste
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() - 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -33,7 +33,7 @@ public class Bispo extends PecaXadrez {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Nordeste
+        // Nordeste
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() + 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -43,7 +43,7 @@ public class Bispo extends PecaXadrez {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Sudeste
+        // Sudeste
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() + 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -53,7 +53,7 @@ public class Bispo extends PecaXadrez {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Sudoeste
+        // Sudoeste
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() - 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -66,4 +66,3 @@ public class Bispo extends PecaXadrez {
         return matriz;
     }
 }
-

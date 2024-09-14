@@ -5,10 +5,10 @@ import JogoTabuleiro.Tabuleiro;
 import Xadrez.Cor;
 import Xadrez.PecaXadrez;
 
-public class Dama extends PecaXadrez{
+public class Dama extends PecaXadrez {
 
     public Dama(Tabuleiro tabuleiro, Cor cor) {
-        super(tabuleiro, cor);  
+        super(tabuleiro, cor);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class Dama extends PecaXadrez{
 
         Posicao p = new Posicao(0, 0);
 
-        //acima
+        // acima
         p.setValor(posicao.getLinha() - 1, posicao.getColuna());
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -32,7 +32,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //esquerda
+        // esquerda
         p.setValor(posicao.getLinha(), posicao.getColuna() - 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -42,7 +42,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //direita
+        // direita
         p.setValor(posicao.getLinha(), posicao.getColuna() + 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -52,7 +52,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //abaixo
+        // abaixo
         p.setValor(posicao.getLinha() + 1, posicao.getColuna());
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -62,7 +62,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Noroeste
+        // Noroeste
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() - 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -72,7 +72,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Nordeste
+        // Nordeste
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() + 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -82,7 +82,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Sudeste
+        // Sudeste
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() + 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -92,7 +92,7 @@ public class Dama extends PecaXadrez{
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Sudoeste
+        // Sudoeste
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() - 1);
         while (getTabuleiro().existePosicao(p) && !getTabuleiro().temUmaPeca(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -104,5 +104,5 @@ public class Dama extends PecaXadrez{
 
         return matriz;
     }
-    
+
 }

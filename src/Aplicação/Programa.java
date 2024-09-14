@@ -30,20 +30,23 @@ public class Programa {
                 System.out.print("\nAlvo: ");
                 PosicaoXadrez alvo = UI.lerPosicaoXadrez(ler);
 
-                PecaXadrez capturaPeca= partidaXadrez.movimentoXadrez(origem, alvo);
-                
+                PecaXadrez capturaPeca = partidaXadrez.movimentoXadrez(origem, alvo);
+
                 if (capturaPeca != null) {
                     captura.add(capturaPeca);
                 }
-            }
-            catch (ExcecaoXadrez e) {
+                if (partidaXadrez.getPromocao() != null) {
+                    System.out.print("Insira a peça para promoção (B/C/T/D): ");
+                    String tipo = ler.nextLine();
+                    partidaXadrez.substituirPromocaoPeca(tipo);
+                }
+            } catch (ExcecaoXadrez e) {
+                System.out.println(e.getMessage());
+                ler.nextLine();
+            } catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
                 ler.nextLine();
             }
-            catch (InputMismatchException e) {
-                System.out.println(e.getMessage());
-                ler.nextLine();
-            } 
         }
         UI.limpaTela();
         UI.printPartida(partidaXadrez, captura);

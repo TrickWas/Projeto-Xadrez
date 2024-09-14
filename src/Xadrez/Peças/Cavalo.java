@@ -16,8 +16,8 @@ public class Cavalo extends PecaXadrez {
         return "C";
     }
 
-    private boolean podeMover (Posicao posicao) {
-        PecaXadrez p = (PecaXadrez)getTabuleiro().peca(posicao);
+    private boolean podeMover(Posicao posicao) {
+        PecaXadrez p = (PecaXadrez) getTabuleiro().peca(posicao);
         return p == null || p.getCor() != getCor();
     }
 
@@ -26,50 +26,42 @@ public class Cavalo extends PecaXadrez {
         boolean[][] matriz = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 
         Posicao p = new Posicao(0, 0);
-        
-        
+
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() - 2);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() - 2, posicao.getColuna() - 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() - 2, posicao.getColuna() + 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() + 2);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() + 2);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() + 2, posicao.getColuna() + 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() + 2, posicao.getColuna() - 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() - 2);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -77,5 +69,5 @@ public class Cavalo extends PecaXadrez {
 
         return matriz;
     }
-    
+
 }

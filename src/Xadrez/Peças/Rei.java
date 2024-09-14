@@ -20,13 +20,13 @@ public class Rei extends PecaXadrez {
         return "R";
     }
 
-    private boolean podeMover (Posicao posicao) {
-        PecaXadrez p = (PecaXadrez)getTabuleiro().peca(posicao);
+    private boolean podeMover(Posicao posicao) {
+        PecaXadrez p = (PecaXadrez) getTabuleiro().peca(posicao);
         return p == null || p.getCor() != getCor();
     }
 
     private boolean testarRoqueTorre(Posicao posicao) {
-        PecaXadrez p = (PecaXadrez)getTabuleiro().peca(posicao);
+        PecaXadrez p = (PecaXadrez) getTabuleiro().peca(posicao);
         return p != null && p instanceof Torre && p.getCor() == getCor() && p.getContaMovimentos() == 0;
     }
 
@@ -35,50 +35,50 @@ public class Rei extends PecaXadrez {
         boolean[][] matriz = new boolean[getTabuleiro().getLinhas()][getTabuleiro().getColunas()];
 
         Posicao p = new Posicao(0, 0);
-        
-        //acima 
+
+        // acima
         p.setValor(posicao.getLinha() - 1, posicao.getColuna());
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //abaixo
+        // abaixo
         p.setValor(posicao.getLinha() + 1, posicao.getColuna());
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //esquerda
+        // esquerda
         p.setValor(posicao.getLinha(), posicao.getColuna() - 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //direita
+        // direita
         p.setValor(posicao.getLinha(), posicao.getColuna() + 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Noroeste
+        // Noroeste
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() - 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Nordeste
+        // Nordeste
         p.setValor(posicao.getLinha() - 1, posicao.getColuna() + 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Sudoeste
+        // Sudoeste
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() - 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
         }
 
-        //Sudeste
+        // Sudeste
         p.setValor(posicao.getLinha() + 1, posicao.getColuna() + 1);
         if (getTabuleiro().existePosicao(p) && podeMover(p)) {
             matriz[p.getLinha()][p.getColuna()] = true;
@@ -102,7 +102,8 @@ public class Rei extends PecaXadrez {
                 Posicao p01 = new Posicao(posicao.getLinha(), posicao.getColuna() - 1);
                 Posicao p02 = new Posicao(posicao.getLinha(), posicao.getColuna() - 2);
                 Posicao p03 = new Posicao(posicao.getLinha(), posicao.getColuna() - 3);
-                if (getTabuleiro().peca(p01) == null && getTabuleiro().peca(p02) == null && getTabuleiro().peca(p03) == null) {
+                if (getTabuleiro().peca(p01) == null && getTabuleiro().peca(p02) == null
+                        && getTabuleiro().peca(p03) == null) {
                     matriz[posicao.getLinha()][posicao.getColuna() - 2] = true;
                 }
             }

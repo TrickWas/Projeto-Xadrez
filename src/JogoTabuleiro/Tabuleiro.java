@@ -23,21 +23,21 @@ public class Tabuleiro {
         return colunas;
     }
 
-    public Peca peca (int linha, int coluna) {
+    public Peca peca(int linha, int coluna) {
         if (!existePosicao(linha, coluna)) {
             throw new ExcecaoTabuleiro("Posição não está no Tabuleiro");
         }
         return pecas[linha][coluna];
     }
 
-    public Peca peca (Posicao posicao) {
+    public Peca peca(Posicao posicao) {
         if (!existePosicao(posicao)) {
             throw new ExcecaoTabuleiro("Posição não está no Tabuleiro");
         }
         return pecas[posicao.getLinha()][posicao.getColuna()];
-    } 
+    }
 
-    public void lugarPeca (Peca peca, Posicao posicao) {
+    public void lugarPeca(Peca peca, Posicao posicao) {
         if (temUmaPeca(posicao)) {
             throw new ExcecaoTabuleiro("Ja existe uma peça na posição " + posicao);
         }
@@ -58,19 +58,18 @@ public class Tabuleiro {
         return aux;
     }
 
-    private boolean existePosicao (int linha,int coluna) {
+    private boolean existePosicao(int linha, int coluna) {
         return linha >= 0 && linha < linhas && coluna >= 0 && coluna < colunas;
     }
 
-    public boolean existePosicao (Posicao posicao) {
+    public boolean existePosicao(Posicao posicao) {
         return existePosicao(posicao.getLinha(), posicao.getColuna());
-
     }
 
-    public boolean temUmaPeca (Posicao posicao) {
+    public boolean temUmaPeca(Posicao posicao) {
         if (!existePosicao(posicao)) {
             throw new ExcecaoTabuleiro("Posição não está no Tabuleiro");
         }
-         return peca(posicao) != null;
+        return peca(posicao) != null;
     }
 }
