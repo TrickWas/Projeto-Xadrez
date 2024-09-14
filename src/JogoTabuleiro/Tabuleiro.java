@@ -15,7 +15,7 @@ public class Tabuleiro {
         pecas = new Peca[linhas][colunas];
     }
 
-    public int getLinha() {
+    public int getLinhas() {
         return linhas;
     }
 

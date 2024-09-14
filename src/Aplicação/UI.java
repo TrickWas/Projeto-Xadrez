@@ -43,13 +43,29 @@ public class UI {
     
     public static PosicaoXadrez lerPosicaoXadrez (Scanner ler) {
         try {
-        String s = ler.nextLine();
-        char coluna = s.charAt(0);
-        int linha = Integer.parseInt(s.substring(1));
-        return new PosicaoXadrez(coluna, linha);
+            String s = ler.nextLine();
+            char coluna = s.charAt(0);
+            int linha = Integer.parseInt(s.substring(1));
+            return new PosicaoXadrez(coluna, linha);
         }
         catch (RuntimeException e) {
             throw new InputMismatchException("Erro ao instanciar Posição do Xadrez: Valores validos são de a1 à h8");
+        }
+    }
+
+    public static void printPartida (PartidaXadrez partidaXadrez, List<PecaXadrez> captura) {
+        printTabuleiro(partidaXadrez.getPecas());
+        printCapturaPeca(captura);
+        System.out.println("\nRodada: " + partidaXadrez.getVez());
+        if (!partidaXadrez.getCheckMate()) {
+            System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
+            if (partidaXadrez.getCheck()) {
+                System.out.println("CHECK!");
+            }
+        }
+        else {
+            System.out.println("CHECKMATE!");
+            System.out.println("Vencedor: " + partidaXadrez.getJogadorAtual());
         }
     }
 
@@ -62,16 +78,6 @@ public class UI {
             System.out.println();
         }
         System.out.println("  a b c d e f g h");
-    }
-
-    public static void printPartida (PartidaXadrez partidaXadrez, List<PecaXadrez> captura) {
-        printTabuleiro(partidaXadrez.getPecas());
-        printCapturaPeca(captura);
-        System.out.println("\nRodada: " + partidaXadrez.getVez());
-        System.out.println("Esperando jogador: " + partidaXadrez.getJogadorAtual());
-        if (partidaXadrez.getCheck()) {
-            System.out.println("CHECK!");
-        }
     }
 
     public static void printTabuleiro (PecaXadrez[][] pecas, boolean[][] movimentoPossivel) {
@@ -106,7 +112,7 @@ public class UI {
     private static void printCapturaPeca(List <PecaXadrez> captura) {
         List <PecaXadrez> branco = captura.stream().filter(x -> x.getCor() == Cor.BRANCO).collect(Collectors.toList());
         List <PecaXadrez> preto = captura.stream().filter(x -> x.getCor() == Cor.PRETO).collect(Collectors.toList());
-        System.out.println("Peças capturadas:");
+        System.out.println("\nPeças capturadas:");
         System.out.print("Brancas: ");
         System.out.print(ANSI_WHITE);
         System.out.println(Arrays.toString(branco.toArray()));
