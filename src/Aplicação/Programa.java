@@ -43,7 +43,7 @@ public class Programa {
             catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
                 ler.nextLine();
-            }
+            } 
         }
     }
 }
